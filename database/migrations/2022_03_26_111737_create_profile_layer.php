@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
             $table->string('birth_place');
             $table->date('birth_date');
-            $table->boolean('sex');
+            $table->string('sex');
             $table->string('religion');
             $table->text('address');
             $table->timestamps();
