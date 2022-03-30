@@ -17,11 +17,11 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('avatar')->nullable();
-            $table->string('birth_place');
-            $table->date('birth_date');
-            $table->string('sex');
-            $table->string('religion');
-            $table->text('address');
+            $table->string('birth_place')->nullable();
+            $table->date('birth_date')->nullable();
+            $table->string('sex')->nullable();
+            $table->string('religion')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
