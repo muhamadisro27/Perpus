@@ -20,12 +20,12 @@ class AuthRepository implements AuthInterface {
       DB::beginTransaction();
 
       $profile = $this->profile::create([
-         'name' => $data->name,
+         'name' => $data->username,
       ]);
 
       $user = $this->user::create([
          'profile_id' => $profile->id,
-         'name' => $data->name,
+         'username' => $data->username,
          'email' => $data->email,
          'password' => bcrypt($data->password)
       ]);
