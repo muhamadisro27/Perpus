@@ -21,6 +21,7 @@ return new class extends Migration
             $table->bigInteger('publisher_books_id');
             $table->string('title');
             $table->string('slug');
+            $table->string('image')->nullable();
             $table->text('synopsis');
             $table->string('author');
             $table->integer('total_page');
@@ -33,7 +34,7 @@ return new class extends Migration
         Schema::create('category_books', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -41,7 +42,7 @@ return new class extends Migration
         Schema::create('publisher_books', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
