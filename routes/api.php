@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Book\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +20,13 @@ use App\Http\Controllers\Auth\AuthController;
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
+Route::get('/books', [BookController::class , 'index'])->name('index');
+Route::get('/books/{book}', [BookController::class, 'show'])->name('show');
 
 Route::group(['middleware' => 'auth:sanctum'],function(){
    Route::prefix('dashboard')->group(function($q) {
-      Route::get('/', [DashboardController::class, 'index']);
+      return 'Dashboard';
    });
+   Route::resource('/books', BookController::class)->except(['index','show']);
    Route::get('logout', [AuthController::class, 'logout']);
 });
