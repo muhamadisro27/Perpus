@@ -37,7 +37,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('officers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('profile_id');
             $table->bigInteger('major_id');
