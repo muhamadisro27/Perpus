@@ -1,0 +1,22 @@
+[
+   {
+      "title" : "Fiksi",
+      "is_active" : true
+   },
+   {
+      "title" : "Novel",
+      "is_active" : true
+   },
+   {
+      "title" : "Komik",
+      "is_active" : true
+   },
+   {
+      "title" : "Biografi",
+      "is_active" : true
+   },
+   {
+      "title" : "Majalah",
+      "is_active" : true
+   }
+]
