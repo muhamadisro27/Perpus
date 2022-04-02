@@ -22,7 +22,7 @@ class AuthService {
 
          $response = [
             'status' => 'success',
-            'message' => 'Thank you for registration!',
+            'message' => 'Terima kasih telah mendaftar!',
             'user' => $user,
             'token' => $token
          ];
@@ -51,6 +51,7 @@ class AuthService {
 
          $response = [
             'status' => 'success',
+            'message' => 'Berhasil Login!',
             'user' => $user,
             'token' => $token
          ];

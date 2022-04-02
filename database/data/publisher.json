@@ -1,0 +1,22 @@
+[
+   {
+      "title" : "Gramedia Pustaka Utama",
+      "is_active" : true
+   },
+   {
+      "title" : "Mizan Pustaka",
+      "is_active" : true
+   },
+   {
+      "title" : "Bentang Pustaka",
+      "is_active" : true
+   },
+   {
+      "title" : "Erlangga",
+      "is_active" : true
+   },
+   {
+      "title" : "Republika",
+      "is_active" : true
+   }
+]

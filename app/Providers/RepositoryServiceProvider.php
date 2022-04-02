@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
-use App\Http\Interfaces\Auth\AuthInterface;
-use App\Http\Repository\Auth\AuthRepository;
 use Illuminate\Support\ServiceProvider;
+use App\Http\Interfaces\Auth\AuthInterface;
+use App\Http\Interfaces\Book\BookInterface;
+use App\Http\Repository\Auth\AuthRepository;
+use App\Http\Repository\Book\BookRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -16,6 +18,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(AuthInterface::class, AuthRepository::class);
+        $this->app->bind(BookInterface::class, BookRepository::class);
     }
 
     /**
