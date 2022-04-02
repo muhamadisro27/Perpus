@@ -14,6 +14,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([UserSeeder::class]);
+         // Initial System Activity
+
+         $this->command->info(PHP_EOL);
+         $this->command->info('⚙️ initial'.PHP_EOL);
+         $this->command->info('********** Initial System **********'.PHP_EOL);
+         $this->command->info('************************************'.PHP_EOL);
+         
+         $this->call(UserSeeder::class);
+
+         // Initial Book Activity
+
+         $this->command->info(PHP_EOL);
+         $this->command->info('⚙️ initial'.PHP_EOL);
+         $this->command->info('********** Initial Book **********'.PHP_EOL);
+         $this->command->info('************************************'.PHP_EOL);
+         
+         $this->call(BookSeeder::class);
     }
 }
