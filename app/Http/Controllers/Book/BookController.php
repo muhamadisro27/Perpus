@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Book;
 
-use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Services\Book\BookService;
 
 class BookController extends Controller
 {
-    public function __construct()
+    public function __construct(BookService $bookService)
     {
-        
+        $this->bookService = $bookService;
     }
     /**
      * Display a listing of the resource.
@@ -19,7 +20,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $data = $this->bookService->index();
+
+        return response()->json($data);
     }
 
     /**
