@@ -12,6 +12,7 @@ class Book extends Model
 
 
     protected $fillable = [
+        'uuid',
         'code_books_id',
         'category_books_id',
         'publisher_books_id',
