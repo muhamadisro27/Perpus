@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
-            $table->bigInteger('code_books_id')->nullable();
             $table->bigInteger('category_books_id');
             $table->bigInteger('publisher_books_id');
             $table->string('title');
