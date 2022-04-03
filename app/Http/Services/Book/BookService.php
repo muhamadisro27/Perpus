@@ -19,5 +19,10 @@ class BookService {
       return $this->book->index();
    }
 
+   public function store($data)
+   {
+      return $this->book->store($data);
+   }
+
 
 }
