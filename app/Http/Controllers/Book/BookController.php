@@ -44,7 +44,10 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        return response()->json([
+            'status' => 'success',
+            'data' => $book
+        ]);
     }
 
     /**
