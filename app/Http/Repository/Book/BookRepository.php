@@ -20,7 +20,7 @@ class BookRepository implements BookInterface {
       try {
          DB::beginTransaction();
 
-         $data = Book::latest()->paginate(10);
+         $data = $this->book::latest()->paginate(10);
  
          DB::commit();
 
@@ -44,7 +44,7 @@ class BookRepository implements BookInterface {
       try {
          DB::beginTransaction();
 
-         $book = Book::create([
+         $book = $this->book::create([
             'uuid' => Uuid::uuid1(),
             'category_books_id' => $data->category_books_id,
             'publisher_books_id' => $data->publisher_books_id,
@@ -65,6 +65,30 @@ class BookRepository implements BookInterface {
             'data' => $book,
          ];
       } catch (\Throwable $th) {
+         $response = [
+            'status' => 'failed',
+            'message' => $th->getMessage(),
+         ];
+      }
+      return $response;
+   }
+
+   public function destroy($data)
+   {
+      try {
+         DB::beginTransaction();
+
+         $this->book::destroy($data->id);
+
+         DB::commit();
+
+         $response = [
+            'status' => 'success',
+            'message' => 'Berhasil menghapus data!',
+         ];
+      } catch (\Throwable $th) {
+         DB::rollBack();
+
          $response = [
             'status' => 'failed',
             'message' => $th->getMessage(),
