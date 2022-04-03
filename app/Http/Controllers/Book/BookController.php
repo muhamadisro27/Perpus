@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Book;
 
 use App\Models\Book;
+use Ramsey\Uuid\Uuid;
 use Illuminate\Http\Request;
+use App\Http\Requests\BookRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Services\Book\BookService;
 
@@ -31,9 +33,11 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
-        //
+        $data = $this->bookService->store($request);
+        
+        return response()->json($data);
     }
 
     /**
@@ -44,7 +48,10 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        return response()->json([
+            'status' => 'success',
+            'data' => $book
+        ]);
     }
 
     /**

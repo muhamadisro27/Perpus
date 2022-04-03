@@ -96,7 +96,6 @@ class BookSeeder extends Seeder
 
         Book::create([
             'uuid' => Uuid::uuid1(),
-            'code_books_id' => rand(1,50),
             'category_books_id' => $category->id,
             'publisher_books_id' => $publisher->id,
             'title' => $title,
