@@ -7,7 +7,7 @@ interface BookInterface {
    // public function show();
    public function store($data);
    // public function update();
-   // public function destroy();
+   public function destroy($data);
 }
 
 ?>
