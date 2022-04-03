@@ -21,12 +21,12 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
 Route::get('/books', [BookController::class , 'index'])->name('index');
-Route::get('/books/{book}', [BookController::class, 'show'])->name('show');
+Route::get('/books/{book:slug}', [BookController::class, 'show'])->name('show');
 
 Route::group(['middleware' => 'auth:sanctum'],function(){
    Route::prefix('dashboard')->group(function($q) {
       return 'Dashboard';
    });
-   Route::resource('/books', BookController::class)->except(['index','show']);
+   Route::apiResource('/books', BookController::class)->except(['index','show']);
    Route::get('logout', [AuthController::class, 'logout']);
 });
