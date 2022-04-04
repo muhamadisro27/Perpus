@@ -73,6 +73,39 @@ class BookRepository implements BookInterface {
       return $response;
    }
 
+   public function update($data,$book)
+   {
+      try {
+         DB::beginTransaction();
+
+         $this->book::where(['uuid' => $book->uuid])->update([
+            'title' => $data->title,
+            'synopsis' => $data->synopsis,
+            'author' => $data->author,
+            'total_page' => $data->total_page,
+            'total_stock' => $data->total_stock,
+            'publish_year' => $data->publish_year,
+            'category_books_id' => $data->category_books_id,
+            'publisher_books_id' => $data->publisher_books_id,
+        ]);
+
+         DB::commit();
+
+         $response = [
+            'status' => 'success',
+            'message' => 'Berhasil Mengubah Data!',
+         ];
+      } catch (\Throwable $th) {
+         DB::rollBack();
+
+         $response = [
+            'status' => 'failed',
+            'message' => $th->getMessage(),
+         ];
+      }
+      return $response;
+   }
+
    public function destroy($data)
    {
       try {
