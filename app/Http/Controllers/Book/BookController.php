@@ -61,9 +61,11 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(BookRequest $request, Book $book)
     {
-        //
+        $updateBook = $this->bookService->update($request,$book);
+
+        return response()->json($updateBook);
     }
 
     /**
