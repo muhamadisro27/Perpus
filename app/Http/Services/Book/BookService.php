@@ -24,6 +24,11 @@ class BookService {
       return $this->book->store($data);
    }
 
+   public function update($data,$book)
+   {
+      return $this->book->update($data,$book);
+   }
+
    public function destroy($data)
    {
       return $this->book->destroy($data);
