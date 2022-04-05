@@ -46,6 +46,20 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        Schema::create('majors', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('title');
+            $table->timestamps();
+        });
+
+        Schema::create('grades', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('title');
+            $table->timestamps();
+        });
+
+
     }
 
     /**
