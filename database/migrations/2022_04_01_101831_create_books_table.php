@@ -46,6 +46,17 @@ return new class extends Migration
             $table->softDeletes();
         });
 
+        Schema::create('borrow_books', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('book_id');
+            $table->bigInteger('student_id');
+            $table->bigInteger('officer_id');
+            $table->dateTime('date_start');
+            $table->dateTime('date_end');
+            $table->string('status');
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
