@@ -42,6 +42,11 @@ class Book extends Model
     {
         return $this->belongsTo(PublisherBook::class);
     }
+
+    public function borrowBooks()
+    {
+        return $this->hasMany(PublisherBook::class, 'book_id');
+    }
     
     public function getRouteKeyName()
     {
