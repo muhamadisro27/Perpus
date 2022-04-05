@@ -28,6 +28,10 @@ class Student extends Model
         return $this->belongsTo(Profile::class, 'profile_id');
     }
 
+    public function borrowBooks() {
+        return $this->hasMany(BorrowBook::class, 'student_id');
+    }
+
     public function grade() {
         return $this->belongsTo(Grade::class, 'grade_id');
     }
