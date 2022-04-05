@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth:sanctum'],function(){
    Route::prefix('dashboard')->group(function($q) {
       return 'Dashboard';
    });
+   Route::post('/borrow/{book}', [BorrowBookController::class])->name('.borrow');
    Route::apiResource('/books', BookController::class)->except(['index','show']);
    Route::get('logout', [AuthController::class, 'logout']);
 });
