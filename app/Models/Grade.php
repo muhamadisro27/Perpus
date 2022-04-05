@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Grade extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title'
+    ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
 }
